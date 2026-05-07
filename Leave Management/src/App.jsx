@@ -1,7 +1,9 @@
 import './App.css'
+
 import UserProfile from './components/UserProfile'
 import LeaveBalance from './components/LeaveBalance'
 import PastLeaves from './components/PastLeave'
+
 function App() {
 
   const leaveData = [
@@ -38,41 +40,41 @@ function App() {
   ];
 
   return (
-    <>
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "nowrap",
-        gap: "16px",
-        padding: "24px",
-        backgroundColor: "#f8fafc",
-        minHeight: "100vh",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        overflowX: "auto"
-      }}
-    >
+
+    <div className="dashboard">
+
+      {/* Left Side */}
       <UserProfile />
 
-      {leaveData.map((leave, index) => (
-        <LeaveBalance
-          key={index}
-          title={leave.type}
-          availableDays={leave.availableDays}
-          available={leave.available}
-          consumed={leave.consumed}
-          accrued={leave.accrued}
-          quota={leave.quota}
-          color={leave.color}
-          percentage={leave.percentage}
-        />
-        
-      ))}
-      
+      {/* Right Side */}
+      <div className="right-section">
+
+        {/* Leave Cards */}
+        <div className="leave-cards">
+
+          {leaveData.map((leave, index) => (
+            <LeaveBalance
+              key={index}
+              title={leave.type}
+              availableDays={leave.availableDays}
+              available={leave.available}
+              consumed={leave.consumed}
+              accrued={leave.accrued}
+              quota={leave.quota}
+              color={leave.color}
+              percentage={leave.percentage}
+            />
+          ))}
+
+        </div>
+
+        {/* Table Below Cards */}
+        <PastLeaves />
+
+      </div>
+
     </div>
-    <PastLeaves/>
-    </>
   );
 }
 
-export default App
+export default App;

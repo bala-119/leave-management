@@ -1,27 +1,50 @@
-/* App.css */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.app {
-  display: flex;
+body {
+  background: #f8fafc;
 
-  min-height: 100vh;
-
-  background: #f1f5f9;
+  overflow: hidden;
 }
 
-.main-content {
-  flex: 1;
+/* Main Dashboard */
+.dashboard {
+  display: flex;
 
-  padding: 30px;
+  gap: 24px;
+
+  padding: 20px;
+
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+/* Right Side */
+.right-section {
+  flex: 1;
 
   display: flex;
 
-  justify-content: center;
+  flex-direction: column;
 
-  align-items: flex-end;
+  gap: 20px;
+
+  height: 100%;
+}
+
+/* Leave Cards */
+.leave-cards {
+  display: flex;
+
+  gap: 16px;
+
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+
+  min-height: 180px;
 }
