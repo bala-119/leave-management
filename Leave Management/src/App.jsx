@@ -38,6 +38,7 @@ function App() {
   ];
 
   return (
+    <>
     <div
       style={{
         display: "flex",
@@ -65,8 +66,12 @@ function App() {
           color={leave.color}
           percentage={leave.percentage}
         />
+        
       ))}
+      
     </div>
+    <PastLeaves/>
+    </>
   );
 }
 
