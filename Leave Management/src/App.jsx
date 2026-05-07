@@ -3,9 +3,11 @@ import './App.css'
 import UserProfile from './components/UserProfile'
 import LeaveBalance from './components/LeaveBalance'
 import PastLeaves from './components/PastLeave'
-
-function App() {
-
+import ApplyLeave from './components/ApplyLeave'
+import { useNavigate } from "react-router-dom";
+import { Routes,Route } from 'react-router-dom'
+function Dashboard() {
+const navigate = useNavigate();
   const leaveData = [
     {
       type: "Paid Leave",
@@ -43,37 +45,55 @@ function App() {
 
     <div className="dashboard">
 
-      {/* Left Side */}
-      <UserProfile />
+  {/* Left Side */}
+  <div className="left-section">
 
-      {/* Right Side */}
-      <div className="right-section">
+    <UserProfile />
 
-        {/* Leave Cards */}
-        <div className="leave-cards">
+    <button className="apply-btn"onClick={() => navigate("/applyleave")}>
+      Apply Leave
+    </button>
 
-          {leaveData.map((leave, index) => (
-            <LeaveBalance
-              key={index}
-              title={leave.type}
-              availableDays={leave.availableDays}
-              available={leave.available}
-              consumed={leave.consumed}
-              accrued={leave.accrued}
-              quota={leave.quota}
-              color={leave.color}
-              percentage={leave.percentage}
-            />
-          ))}
+  </div>
 
-        </div>
+  {/* Right Side */}
+  <div className="right-section">
 
-        {/* Table Below Cards */}
-        <PastLeaves />
+    <div className="leave-cards">
 
-      </div>
+      {leaveData.map((leave, index) => (
+        <LeaveBalance
+          key={index}
+          title={leave.type}
+          availableDays={leave.availableDays}
+          available={leave.available}
+          consumed={leave.consumed}
+          accrued={leave.accrued}
+          quota={leave.quota}
+          color={leave.color}
+          percentage={leave.percentage}
+        />
+      ))}
 
     </div>
+
+    <PastLeaves />
+
+  </div>
+
+</div>
+    
+  );
+}
+function App() {
+  return (
+    <Routes>
+
+      <Route path="/" element={<Dashboard />} />
+
+      <Route path="/applyleave" element={<ApplyLeave />} />
+
+    </Routes>
   );
 }
 

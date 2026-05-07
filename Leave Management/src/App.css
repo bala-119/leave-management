@@ -6,24 +6,20 @@
 
 body {
   background: #f8fafc;
-
-  overflow: hidden;
 }
 
-/* Main Dashboard */
+/* Main Layout */
 .dashboard {
   display: flex;
 
   gap: 24px;
 
-  padding: 20px;
+  padding: 24px;
 
-  height: 100vh;
-
-  overflow: hidden;
+  align-items: flex-start;
 }
 
-/* Right Side */
+/* Right Section */
 .right-section {
   flex: 1;
 
@@ -31,20 +27,83 @@ body {
 
   flex-direction: column;
 
-  gap: 20px;
-
-  height: 100%;
+  gap: 24px;
 }
 
-/* Leave Cards */
+/* Leave Cards Row */
 .leave-cards {
   display: flex;
 
-  gap: 16px;
+  gap: 60px;
+  margin-left: 20px;
 
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+}
 
-  overflow-x: auto;
+.button-container {
+  display: flex;
 
-  min-height: 180px;
+  justify-content: flex-end;
+}
+
+.apply-btn {
+  padding: 12px 24px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
+}
+
+.left-section {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.apply-btn {
+  width: 350px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
 }

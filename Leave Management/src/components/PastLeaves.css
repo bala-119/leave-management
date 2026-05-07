@@ -12,7 +12,8 @@
 
   width:fit-content;
 
-  height: 400px;
+  height: 350px;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -26,7 +27,7 @@
 
   color: #5c91e6;
 
-  font-size: 28px;
+  font-size: 22px;
 
   font-weight: 700;
 
@@ -50,7 +51,7 @@
 
   border-collapse: collapse;
 
-  font-size: 15px;
+  font-size: 14px;
 }
 
 /* Sticky Header */
@@ -71,7 +72,7 @@
 
   text-align: left;
 
-  font-size: 15px;
+  font-size: 16px;
 
   font-weight: 600;
 
@@ -79,7 +80,7 @@
 }
 
 .leave-table td {
-  padding: 16px;
+  padding: 12px;
 
   border-bottom: 1px solid #e2e8f0;
 
@@ -100,7 +101,7 @@
 
   border-radius: 20px;
 
-  font-size: 13px;
+  font-size: 12px;
 
   font-weight: 600;
 
