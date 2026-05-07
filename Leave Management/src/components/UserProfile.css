@@ -1,62 +1,110 @@
-/* src/components/UserProfile.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* Profile Card */
 .profile-card {
-  width: 350px;
+  width: 360px;
 
   background: white;
 
-  padding: 30px;
+  padding: 35px 30px;
 
-  border-radius: 18px;
+  border-radius: 22px;
 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 
   display: flex;
   flex-direction: column;
 
   align-items: center;
 
-  gap: 18px;
+  gap: 22px;
+
+  font-family: 'Inter', sans-serif;
+
+  transition: 0.3s ease;
 }
 
+.profile-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+/* Profile Image */
 .profile-img {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 
   border-radius: 50%;
 
   object-fit: cover;
 
-  border: 4px solid #2563eb;
+  border: 5px solid #2563eb;
+
+  padding: 4px;
+
+  background: white;
 }
 
+/* Name */
 .profile-card h2 {
   color: #1e293b;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
 }
 
+/* Role */
 .profile-card p {
-  color: gray;
+  color: #64748b;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  margin-top: -12px;
 }
 
+/* Info Rows */
 .profile-info {
   width: 100%;
 
   display: flex;
   justify-content: space-between;
 
-  padding: 10px 0;
+  align-items: center;
+
+  padding: 14px 0;
 
   border-bottom: 1px solid #e2e8f0;
+
+  font-size: 15px;
+
+  color: #334155;
 }
 
+.profile-info span:first-child {
+  font-weight: 600;
+
+  color: #0f172a;
+}
+
+.profile-info span:last-child {
+  color: #475569;
+}
+
+/* Button */
 .profile-card button {
   width: 100%;
 
-  padding: 12px;
+  padding: 14px;
 
   border: none;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   background: #2563eb;
 
@@ -66,9 +114,13 @@
 
   font-size: 16px;
 
-  transition: 0.3s;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
 }
 
 .profile-card button:hover {
   background: #1d4ed8;
+
+  transform: scale(1.02);
 }
