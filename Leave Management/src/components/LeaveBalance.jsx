@@ -6,14 +6,11 @@ const LeaveBalance = ({
   availableDays,
   available,
   consumed,
-  accrued,
-  quota,
   color,
-  percentage = 285 // Defaulting to a value that looks good in the ring
+  percentage = 285 
 }) => {
-  const radius = 55;
+  const radius = 45;
   const circumference = 2 * Math.PI * radius;
-  // Convert 0-360 degrees to stroke-dashoffset
   const offset = circumference - (percentage / 360) * circumference;
 
   return (
@@ -70,15 +67,6 @@ const LeaveBalance = ({
 
         <div className="divider"></div>
 
-        <div className="legend-row secondary">
-          <span className="label">Accrued so far</span>
-          <span className="value">{accrued}</span>
-        </div>
-
-        <div className="legend-row secondary">
-          <span className="label">Annual Quota</span>
-          <span className="value">{quota}</span>
-        </div>
       </div>
 
       <button className="explain-btn" style={{ "--btn-color": color }}>
@@ -88,4 +76,4 @@ const LeaveBalance = ({
   );
 };
 
-export default LeaveBalance;
+export default LeaveBalance;

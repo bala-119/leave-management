@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 2px;
 }
 
 .title {
@@ -60,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 2px;
 }
 
 .progress-svg {
@@ -94,7 +94,7 @@
 }
 
 .inner-circle p {
-  margin: 2px 0 0;
+  margin: 0px 0 0;
   font-size: 10px;
   font-weight: 700;
   color: #94a3b8;
@@ -110,17 +110,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 }
 
 .legend-row.secondary {
-  margin-bottom: 4px;
+  margin-bottom: 0px;
 }
 
 .left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
 }
 
 .dot {
@@ -163,8 +163,8 @@
   margin-top: 12px;
   padding: 12px;
   border: none;
-  background: #f8fafc;
-  color: var(--btn-color, #3b82f6);
+  background: var(--btn-color, #3b82f6);
+  color: #f8fafc;
   font-size: 13px;
   font-weight: 700;
   border-radius: 12px;
