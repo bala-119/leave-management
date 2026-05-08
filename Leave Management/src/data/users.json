@@ -72,10 +72,10 @@
     ]
   },
 
-  "Dilipan": {
-    "department": "Civil",
-    "email": "dilipn@gmail.com",
-    "role": "Site Engineer",
+  "S.Meiyammai": {
+    "department": "Computer Science",
+    "email": "smeiyammai@gmail.com",
+    "role": "Full Stack Engineer",
 
     "leaveSummary": {
       "paidLeave": {
