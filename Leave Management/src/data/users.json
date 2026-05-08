@@ -1,5 +1,6 @@
 {
   "Balasubramaniyan": {
+    "image":"male.png",
     "department": "IT",
     "email": "bala@gmail.com",
     "role": "Software Developer",
@@ -73,6 +74,7 @@
   },
 
   "Dilipan": {
+    "image": "female.png",
     "department": "Civil",
     "email": "dilipn@gmail.com",
     "role": "Site Engineer",

@@ -1,8 +1,13 @@
 // src/components/UserProfile.jsx
 
 import "./UserProfile.css";
+import male from "../assets/male.png";
+import female from "../assets/female.png";
 function UserProfile({ currentUser, employee, setIndex, userNames }) {
-
+  const profileImages = {
+    "male.png" : male,
+    "female.png" : female
+  }
   function switchProfile() {
 
     setIndex((prev) => {
@@ -24,7 +29,7 @@ function UserProfile({ currentUser, employee, setIndex, userNames }) {
     <div className="profile-card">
 
       <img
-        src="https://i.pravatar.cc/150"
+        src={profileImages[employee.image]}
         alt="profile"
         className="profile-img"
       />
