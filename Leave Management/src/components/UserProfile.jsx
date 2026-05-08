@@ -4,7 +4,20 @@ import "./UserProfile.css";
 function UserProfile({ currentUser, employee, setIndex, userNames }) {
 
   function switchProfile() {
-    setIndex((prev) => (prev + 1) % userNames.length);
+
+    setIndex((prev) => {
+
+      const nextIndex =
+        (prev + 1) % userNames.length;
+
+      localStorage.setItem(
+        "currentUser",
+        userNames[nextIndex]
+      );
+
+      return nextIndex;
+    });
+
   }
 
   return (

@@ -21,6 +21,7 @@ function ApplyLeave({ onApplyLeave }) {
   }
 
   function handleSubmit(e) {
+
     e.preventDefault();
 
     const success = onApplyLeave(formData);
@@ -43,6 +44,7 @@ function ApplyLeave({ onApplyLeave }) {
 
           <div className="form-group">
             <label>Leave Type</label>
+
             <select
               name="leaveType"
               value={formData.leaveType}
@@ -50,14 +52,25 @@ function ApplyLeave({ onApplyLeave }) {
               required
             >
               <option value="">Select Leave</option>
-              <option value="Casual Leave">Casual Leave</option>
-              <option value="Sick Leave">Sick Leave</option>
-              <option value="Paid Leave">Paid Leave</option>
+
+              <option value="Casual Leave">
+                Casual Leave
+              </option>
+
+              <option value="Sick Leave">
+                Sick Leave
+              </option>
+
+              <option value="Paid Leave">
+                Paid Leave
+              </option>
+
             </select>
           </div>
 
           <div className="form-group">
             <label>From Date</label>
+
             <input
               type="date"
               name="fromDate"
@@ -69,6 +82,7 @@ function ApplyLeave({ onApplyLeave }) {
 
           <div className="form-group">
             <label>To Date</label>
+
             <input
               type="date"
               name="toDate"
@@ -80,6 +94,7 @@ function ApplyLeave({ onApplyLeave }) {
 
           <div className="form-group">
             <label>Reason</label>
+
             <textarea
               name="reason"
               rows="4"
