@@ -73,11 +73,11 @@
     ]
   },
 
-  "Dilipan": {
+  "S.Meiyammai": {
     "image": "female.png",
-    "department": "Civil",
-    "email": "dilipn@gmail.com",
-    "role": "Site Engineer",
+    "department": "Computer Science",
+    "email": "smeiyammai@gmail.com",
+    "role": "Full Stack Engineer",
 
     "leaveSummary": {
       "paidLeave": {
