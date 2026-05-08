@@ -11,22 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react';
 
-function Dashboard() {
+function Dashboard({ currentUser, currentData, setIndex, userNames }) {
 
   const navigate = useNavigate();
-
-  // users list
-  const userNames = Object.keys(users);
-
-  // current user index
-  const [index, setIndex] = useState(0);
-
-  // current user name
-  const currentUser = userNames[index];
-  console.log(currentUser)
-
-  // current user data
-  const currentData = users[currentUser];
 
   // dynamic leave data from JSON
   const leaveData = [
@@ -67,6 +54,7 @@ function Dashboard() {
 
         <UserProfile
           currentUser={currentUser}
+          employee={currentData}
           setIndex={setIndex}
           userNames={userNames}
         />
@@ -99,7 +87,7 @@ function Dashboard() {
 
         </div>
 
-        <PastLeaves currentUser={currentUser} />
+        <PastLeaves pastLeaves={currentData.pastLeaves} />
 
       </div>
 
@@ -109,12 +97,81 @@ function Dashboard() {
 }
 
 function App() {
+  const [allUsers, setAllUsers] = useState(users);
+  const [index, setIndex] = useState(0);
+
+  const userNames = Object.keys(allUsers);
+  const currentUser = userNames[index];
+  const currentData = allUsers[currentUser];
+
+  const handleApplyLeave = (formData) => {
+    const { leaveType, fromDate, toDate } = formData;
+
+    // Calculate days
+    const start = new Date(fromDate);
+    const end = new Date(toDate);
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+    // Map leaveType to key in JSON
+    const leaveKeyMap = {
+      "Paid Leave": "paidLeave",
+      "Sick Leave": "sickLeave",
+      "Casual Leave": "casualLeave"
+    };
+    const key = leaveKeyMap[leaveType];
+
+    if (key && currentData.leaveSummary[key].available >= diffDays) {
+      setAllUsers(prev => {
+        const updatedUsers = { ...prev };
+        const updatedUser = { ...updatedUsers[currentUser] };
+        
+        updatedUser.leaveSummary = { 
+          ...updatedUser.leaveSummary,
+          [key]: {
+            available: updatedUser.leaveSummary[key].available - diffDays,
+            consumed: updatedUser.leaveSummary[key].consumed + diffDays
+          }
+        };
+
+        updatedUser.pastLeaves = [
+          {
+            leaveType,
+            from: fromDate,
+            to: toDate,
+            status: "Approved",
+            approvedBy: "Manager"
+          },
+          ...updatedUser.pastLeaves
+        ];
+
+        updatedUsers[currentUser] = updatedUser;
+        return updatedUsers;
+      });
+      return true;
+    } else {
+      alert("Insufficient leave balance!");
+      return false;
+    }
+  };
+
   return (
     <Routes>
 
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={
+        <Dashboard
+          currentUser={currentUser}
+          currentData={currentData}
+          setIndex={setIndex}
+          userNames={userNames}
+        />
+      } />
 
-      <Route path="/applyleave" element={<ApplyLeave />} />
+      <Route path="/applyleave" element={
+        <ApplyLeave
+          onApplyLeave={handleApplyLeave}
+        />
+      } />
 
     </Routes>
   );

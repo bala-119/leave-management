@@ -1,11 +1,7 @@
 // src/components/UserProfile.jsx
 
 import "./UserProfile.css";
-import users from "../data/users.json";
-
-function UserProfile({ currentUser, setIndex, userNames }) {
-
-  const data = users[currentUser];
+function UserProfile({ currentUser, employee, setIndex, userNames }) {
 
   function switchProfile() {
     setIndex((prev) => (prev + 1) % userNames.length);
@@ -22,25 +18,25 @@ function UserProfile({ currentUser, setIndex, userNames }) {
 
       <h2>{currentUser}</h2>
 
-      <p>{data.role}</p>
+      <p>{employee.role}</p>
 
       <div className="profile-info">
         <span>Email:</span>
-        <span>{data.email}</span>
+        <span>{employee.email}</span>
       </div>
 
       <div className="profile-info">
         <span>Department:</span>
-        <span>{data.department}</span>
+        <span>{employee.department}</span>
       </div>
 
       <div className="profile-info">
         <span>Leaves Left:</span>
 
         <span>
-          Paid: {data.leaveSummary.paidLeave.available} |
-          Sick: {data.leaveSummary.sickLeave.available} |
-          Casual: {data.leaveSummary.casualLeave.available}
+          Paid: {employee.leaveSummary.paidLeave.available} |
+          Sick: {employee.leaveSummary.sickLeave.available} |
+          Casual: {employee.leaveSummary.casualLeave.available}
         </span>
       </div>
 

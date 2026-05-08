@@ -1,9 +1,5 @@
 import "./PastLeaves.css";
-import users from "../data/users.json";
-
-function PastLeaves({ currentUser }) {
-
-  const leaves = users[currentUser]?.pastLeaves || [];
+function PastLeaves({ pastLeaves }) {
 
   return (
     <div className="leaves-container">
@@ -26,7 +22,7 @@ function PastLeaves({ currentUser }) {
 
           <tbody>
 
-            {leaves.map((leave, index) => (
+            {pastLeaves.map((leave, index) => (
               <tr key={index}>
 
                 <td>{leave.leaveType}</td>

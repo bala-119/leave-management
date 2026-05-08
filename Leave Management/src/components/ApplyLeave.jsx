@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ApplyLeave.css";
 
-function ApplyLeave() {
+function ApplyLeave({ onApplyLeave }) {
 
   const navigate = useNavigate();
 
@@ -23,12 +23,13 @@ function ApplyLeave() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(formData);
+    const success = onApplyLeave(formData);
 
-    alert("Leave Applied Successfully");
-
-    // navigate back to dashboard
-    navigate("/");
+    if (success) {
+      alert("Leave Applied Successfully");
+      // navigate back to dashboard
+      navigate("/");
+    }
   }
 
   return (
