@@ -47,7 +47,6 @@ const LeaveBalance = ({
           <p>AVAILABLE</p>
         </div>
       </div>
-
       <div className="legend">
         <div className="legend-row">
           <div className="left">
@@ -64,14 +63,7 @@ const LeaveBalance = ({
           </div>
           <span className="value">{consumed}</span>
         </div>
-
-        <div className="divider"></div>
-
       </div>
-
-      <button className="explain-btn" style={{ "--btn-color": color }}>
-        EXPLAIN
-      </button>
     </div>
   );
 };
