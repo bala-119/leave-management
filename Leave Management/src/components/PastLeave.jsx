@@ -3,7 +3,16 @@ import users from "../data/users.json";
 
 function PastLeaves({ currentUser }) {
 
-  const leaves = users[currentUser]?.pastLeaves || [];
+  // existing json leaves
+  const jsonLeaves =
+    users[currentUser]?.pastLeaves || [];
+
+  // newly applied leaves from localStorage
+  const localLeaves =
+    JSON.parse(localStorage.getItem(currentUser)) || [];
+
+  // combine both
+  const leaves = [...localLeaves, ...jsonLeaves];
 
   return (
     <div className="leaves-container">

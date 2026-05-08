@@ -21,13 +21,38 @@ function ApplyLeave() {
   }
 
   function handleSubmit(e) {
+
     e.preventDefault();
 
-    console.log(formData);
+    // current logged user
+    const currentUser = localStorage.getItem("currentUser") || "Balasubramaniyan";
+
+    // old leaves
+    const existingLeaves =
+      JSON.parse(localStorage.getItem(currentUser)) || [];
+
+    // new leave object
+    const newLeave = {
+      leaveType: formData.leaveType,
+      from: formData.fromDate,
+      to: formData.toDate,
+      status: "Pending",
+      approvedBy: "-"
+    };
+
+    // add new leave
+    const updatedLeaves = [newLeave, ...existingLeaves];
+
+    // store again
+    localStorage.setItem(
+      currentUser,
+      JSON.stringify(updatedLeaves)
+    );
+
+    console.log(updatedLeaves);
 
     alert("Leave Applied Successfully");
 
-    // navigate back to dashboard
     navigate("/");
   }
 
@@ -42,6 +67,7 @@ function ApplyLeave() {
 
           <div className="form-group">
             <label>Leave Type</label>
+
             <select
               name="leaveType"
               value={formData.leaveType}
@@ -49,14 +75,25 @@ function ApplyLeave() {
               required
             >
               <option value="">Select Leave</option>
-              <option value="Casual Leave">Casual Leave</option>
-              <option value="Sick Leave">Sick Leave</option>
-              <option value="Paid Leave">Paid Leave</option>
+
+              <option value="Casual Leave">
+                Casual Leave
+              </option>
+
+              <option value="Sick Leave">
+                Sick Leave
+              </option>
+
+              <option value="Paid Leave">
+                Paid Leave
+              </option>
+
             </select>
           </div>
 
           <div className="form-group">
             <label>From Date</label>
+
             <input
               type="date"
               name="fromDate"
@@ -68,6 +105,7 @@ function ApplyLeave() {
 
           <div className="form-group">
             <label>To Date</label>
+
             <input
               type="date"
               name="toDate"
@@ -79,6 +117,7 @@ function ApplyLeave() {
 
           <div className="form-group">
             <label>Reason</label>
+
             <textarea
               name="reason"
               rows="4"
