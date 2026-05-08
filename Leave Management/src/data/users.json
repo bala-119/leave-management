@@ -1,0 +1,83 @@
+{
+  "Balasubramaniyan": {
+    "department": "IT",
+    "email": "bala@gmail.com",
+    "role": "Software Developer",
+
+    "leaveSummary": {
+      "paidLeave": {
+        "available": 4,
+        "consumed": 15
+      },
+
+      "sickLeave": {
+        "available": 6,
+        "consumed": 4
+      },
+
+      "casualLeave": {
+        "available": 3,
+        "consumed": 2
+      }
+    },
+
+    "pastLeaves": [
+      {
+        "leaveType": "Casual Leave",
+        "from": "2026-05-01",
+        "to": "2026-05-03",
+        "status": "Approved",
+        "approvedBy": "HR Manager"
+      },
+
+      {
+        "leaveType": "Sick Leave",
+        "from": "2026-04-15",
+        "to": "2026-04-16",
+        "status": "Approved",
+        "approvedBy": "Team Lead"
+      },
+
+      {
+        "leaveType": "Casual Leave",
+        "from": "2026-03-10",
+        "to": "2026-03-12",
+        "status": "Pending",
+        "approvedBy": "-"
+      }
+    ]
+  },
+
+  "Dilipan": {
+    "department": "Civil",
+    "email": "dilipn@gmail.com",
+    "role": "Site Engineer",
+
+    "leaveSummary": {
+      "paidLeave": {
+        "available": 5,
+        "consumed": 10
+      },
+
+      "sickLeave": {
+        "available": 2,
+        "consumed": 1
+      },
+
+      "casualLeave": {
+        "available": 4,
+        "consumed": 3
+      }
+    },
+
+    "pastLeaves": [
+      {
+        "leaveType": "Paid Leave",
+        "from": "2026-04-01",
+        "to": "2026-04-05",
+        "status": "Approved",
+        "approvedBy": "Manager"
+      }
+    ]
+  }
+}

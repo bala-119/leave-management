@@ -1,8 +1,23 @@
 // src/components/UserProfile.jsx
 
+import { useState } from "react";
 import "./UserProfile.css";
+import users from "../data/users.json";
 
 function UserProfile() {
+
+  const userNames = Object.keys(users);
+
+  const [index, setIndex] = useState(0);
+
+  const currentUser = userNames[index];
+
+  const data = users[currentUser];
+
+  function switchProfile() {
+    setIndex((prev) => (prev + 1) % userNames.length);
+  }
+
   return (
     <div className="profile-card">
 
@@ -12,26 +27,33 @@ function UserProfile() {
         className="profile-img"
       />
 
-      <h2>Balasubramaniyan</h2>
+      <h2>{currentUser}</h2>
 
-      <p>Software Developer</p>
+      <p>{data.role}</p>
 
       <div className="profile-info">
         <span>Email:</span>
-        <span>balasubramaniyan@gmail.com</span>
+        <span>{data.email}</span>
       </div>
 
       <div className="profile-info">
         <span>Department:</span>
-        <span>IT</span>
+        <span>{data.department}</span>
       </div>
 
       <div className="profile-info">
         <span>Leaves Left:</span>
-        <span>12</span>
+
+        <span>
+          Paid: {data.leaveSummary.paidLeave.available} |
+          Sick: {data.leaveSummary.sickLeave.available} |
+          Casual: {data.leaveSummary.casualLeave.available}
+        </span>
       </div>
 
-      <button>Edit Profile</button>
+      <button onClick={switchProfile}>
+        Switch Profile
+      </button>
 
     </div>
   );
