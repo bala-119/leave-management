@@ -1,99 +1,15 @@
-// src/components/PastLeaves.jsx
-
 import "./PastLeaves.css";
+import users from "../data/users.json";
 
-function PastLeaves() {
+function PastLeaves({ currentUser }) {
 
-  const leaves = [
-    {
-      id: 1,
-      type: "Casual Leave",
-      from: "2026-05-01",
-      to: "2026-05-03",
-      status: "Approved",
-      approvedBy: "HR Manager"
-    },
-    {
-      id: 2,
-      type: "Sick Leave",
-      from: "2026-04-15",
-      to: "2026-04-16",
-      status: "Approved",
-      approvedBy: "Team Lead"
-    },
-    {
-      id: 3,
-      type: "Casual Leave",
-      from: "2026-03-10",
-      to: "2026-03-12",
-      status: "Pending",
-      approvedBy: "-"
-    },
-    {
-      id: 4,
-      type: "Sick Leave",
-      from: "2026-02-05",
-      to: "2026-02-06",
-      status: "Rejected",
-      approvedBy: "Manager"
-    },
-    {
-      id: 5,
-      type: "Casual Leave",
-      from: "2026-01-20",
-      to: "2026-01-22",
-      status: "Approved",
-      approvedBy: "HR"
-    },
-    {
-      id: 6,
-      type: "Sick Leave",
-      from: "2026-02-05",
-      to: "2026-02-06",
-      status: "Rejected",
-      approvedBy: "Manager"
-    },
-    {
-      id: 7,
-      type: "Casual Leave",
-      from: "2026-01-20",
-      to: "2026-01-22",
-      status: "Approved",
-      approvedBy: "HR"
-    },
-    ,
-    {
-      id: 8,
-      type: "Casual Leave",
-      from: "2026-01-20",
-      to: "2026-01-22",
-      status: "Approved",
-      approvedBy: "HR"
-    },
-    {
-      id: 9,
-      type: "Sick Leave",
-      from: "2026-02-05",
-      to: "2026-02-06",
-      status: "Rejected",
-      approvedBy: "Manager"
-    },
-    {
-      id: 10,
-      type: "Casual Leave",
-      from: "2026-01-20",
-      to: "2026-01-22",
-      status: "Approved",
-      approvedBy: "HR"
-    }
-  ];
+  const leaves = users[currentUser]?.pastLeaves || [];
 
   return (
     <div className="leaves-container">
 
       <h2>Past Leaves</h2>
 
-      {/* Scrollable Table */}
       <div className="table-wrapper">
 
         <table className="leave-table">
@@ -109,10 +25,11 @@ function PastLeaves() {
           </thead>
 
           <tbody>
-            {leaves.map((leave) => (
-              <tr key={leave.id}>
 
-                <td>{leave.type}</td>
+            {leaves.map((leave, index) => (
+              <tr key={index}>
+
+                <td>{leave.leaveType}</td>
 
                 <td>{leave.from}</td>
 
@@ -128,6 +45,7 @@ function PastLeaves() {
 
               </tr>
             ))}
+
           </tbody>
 
         </table>

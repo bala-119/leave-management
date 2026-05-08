@@ -1,16 +1,9 @@
 // src/components/UserProfile.jsx
 
-import { useState } from "react";
 import "./UserProfile.css";
 import users from "../data/users.json";
 
-function UserProfile() {
-
-  const userNames = Object.keys(users);
-
-  const [index, setIndex] = useState(0);
-
-  const currentUser = userNames[index];
+function UserProfile({ currentUser, setIndex, userNames }) {
 
   const data = users[currentUser];
 

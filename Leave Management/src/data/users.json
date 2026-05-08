@@ -44,6 +44,30 @@
         "to": "2026-03-12",
         "status": "Pending",
         "approvedBy": "-"
+      },
+
+      {
+        "leaveType": "Paid Leave",
+        "from": "2026-02-01",
+        "to": "2026-02-05",
+        "status": "Approved",
+        "approvedBy": "Manager"
+      },
+
+      {
+        "leaveType": "Sick Leave",
+        "from": "2026-01-18",
+        "to": "2026-01-19",
+        "status": "Rejected",
+        "approvedBy": "HR"
+      },
+
+      {
+        "leaveType": "Casual Leave",
+        "from": "2025-12-20",
+        "to": "2025-12-22",
+        "status": "Approved",
+        "approvedBy": "Team Lead"
       }
     ]
   },
@@ -77,6 +101,46 @@
         "to": "2026-04-05",
         "status": "Approved",
         "approvedBy": "Manager"
+      },
+
+      {
+        "leaveType": "Casual Leave",
+        "from": "2026-03-12",
+        "to": "2026-03-14",
+        "status": "Approved",
+        "approvedBy": "Site Head"
+      },
+
+      {
+        "leaveType": "Sick Leave",
+        "from": "2026-02-08",
+        "to": "2026-02-09",
+        "status": "Pending",
+        "approvedBy": "-"
+      },
+
+      {
+        "leaveType": "Paid Leave",
+        "from": "2026-01-01",
+        "to": "2026-01-03",
+        "status": "Approved",
+        "approvedBy": "HR"
+      },
+
+      {
+        "leaveType": "Casual Leave",
+        "from": "2025-12-10",
+        "to": "2025-12-11",
+        "status": "Rejected",
+        "approvedBy": "Manager"
+      },
+
+      {
+        "leaveType": "Sick Leave",
+        "from": "2025-11-15",
+        "to": "2025-11-16",
+        "status": "Approved",
+        "approvedBy": "Site Manager"
       }
     ]
   }

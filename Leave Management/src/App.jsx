@@ -4,38 +4,55 @@ import UserProfile from './components/UserProfile'
 import LeaveBalance from './components/LeaveBalance'
 import PastLeaves from './components/PastLeave'
 import ApplyLeave from './components/ApplyLeave'
+
+import users from "./data/users.json";
+
 import { useNavigate } from "react-router-dom";
-import { Routes,Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react';
+
 function Dashboard() {
-const navigate = useNavigate();
+
+  const navigate = useNavigate();
+
+  // users list
+  const userNames = Object.keys(users);
+
+  // current user index
+  const [index, setIndex] = useState(0);
+
+  // current user name
+  const currentUser = userNames[index];
+  console.log(currentUser)
+
+  // current user data
+  const currentData = users[currentUser];
+
+  // dynamic leave data from JSON
   const leaveData = [
     {
       type: "Paid Leave",
-      availableDays: 4.2,
-      available: "4.2d",
-      consumed: "15.8d",
-      accrued: "20.0d",
-      quota: "20.0d",
+      availableDays: currentData.leaveSummary.paidLeave.available,
+      available: `${currentData.leaveSummary.paidLeave.available}d`,
+      consumed: `${currentData.leaveSummary.paidLeave.consumed}d`,
       color: "#3b82f6",
       percentage: 285
     },
+
     {
       type: "Sick Leave",
-      availableDays: 6,
-      available: "6d",
-      consumed: "4d",
-      accrued: "10d",
-      quota: "10d",
+      availableDays: currentData.leaveSummary.sickLeave.available,
+      available: `${currentData.leaveSummary.sickLeave.available}d`,
+      consumed: `${currentData.leaveSummary.sickLeave.consumed}d`,
       color: "#ef4444",
       percentage: 216
     },
+
     {
       type: "Casual Leave",
-      availableDays: 3,
-      available: "3d",
-      consumed: "2d",
-      accrued: "5d",
-      quota: "5d",
+      availableDays: currentData.leaveSummary.casualLeave.available,
+      available: `${currentData.leaveSummary.casualLeave.available}d`,
+      consumed: `${currentData.leaveSummary.casualLeave.consumed}d`,
       color: "#10b981",
       percentage: 180
     }
@@ -45,46 +62,52 @@ const navigate = useNavigate();
 
     <div className="dashboard">
 
-  {/* Left Side */}
-  <div className="left-section">
+      {/* Left Side */}
+      <div className="left-section">
 
-    <UserProfile />
-
-    <button className="apply-btn"onClick={() => navigate("/applyleave")}>
-      Apply Leave
-    </button>
-
-  </div>
-
-  {/* Right Side */}
-  <div className="right-section">
-
-    <div className="leave-cards">
-
-      {leaveData.map((leave, index) => (
-        <LeaveBalance
-          key={index}
-          title={leave.type}
-          availableDays={leave.availableDays}
-          available={leave.available}
-          consumed={leave.consumed}
-          accrued={leave.accrued}
-          quota={leave.quota}
-          color={leave.color}
-          percentage={leave.percentage}
+        <UserProfile
+          currentUser={currentUser}
+          setIndex={setIndex}
+          userNames={userNames}
         />
-      ))}
+
+        <button
+          className="apply-btn"
+          onClick={() => navigate("/applyleave")}
+        >
+          Apply Leave
+        </button>
+
+      </div>
+
+      {/* Right Side */}
+      <div className="right-section">
+
+        <div className="leave-cards">
+
+          {leaveData.map((leave, index) => (
+            <LeaveBalance
+              key={index}
+              title={leave.type}
+              availableDays={leave.availableDays}
+              available={leave.available}
+              consumed={leave.consumed}
+              color={leave.color}
+              percentage={leave.percentage}
+            />
+          ))}
+
+        </div>
+
+        <PastLeaves currentUser={currentUser} />
+
+      </div>
 
     </div>
 
-    <PastLeaves />
-
-  </div>
-
-</div>
-    
   );
 }
+
 function App() {
   return (
     <Routes>
